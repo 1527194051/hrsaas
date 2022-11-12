@@ -132,7 +132,10 @@ export default {
           try {
             this.loading = true
             await this['user/login'](this.loginForm)
+            // console.log(n)
+            // debugger
             this.$router.push('/')
+            // debugger
           } catch (error) {
             console.log(error)
           } finally {
