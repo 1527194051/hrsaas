@@ -1,4 +1,4 @@
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, removeToken, setTimeStamp } from '@/utils/auth'
 import { login, getUserInfo, getUserDetailById } from '@/api/user'
 const state = {
   token: getToken(),
@@ -29,6 +29,7 @@ const actions = {
     // debugger
 
     context.commit('setToken', result)
+    setTimeStamp()
   },
   async getUserInfo(context) {
     const result = await getUserInfo() // 获取返回值
