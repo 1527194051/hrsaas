@@ -12,6 +12,8 @@ import App from './App'
 import store from './store'
 import router from './router'
 import * as directives from '@/directives'
+import * as filters from '@/filters'
+import Components from './components'
 import '@/icons' // icon
 import '@/permission' // permission control
 
@@ -30,12 +32,18 @@ if (process.env.NODE_ENV === 'production') {
 
 // set ElementUI lang to EN
 Vue.use(ElementUI)
+
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
+
 Object.keys(directives).forEach(key => {
   // 注册自定义指令
   Vue.directive(key, directives[key])
 })
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+Vue.use(Components)
 Vue.config.productionTip = false
 
 new Vue({
